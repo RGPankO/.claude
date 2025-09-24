@@ -12,38 +12,48 @@ This template provides a solid foundation for any software project, emphasizing:
 
 ## 📁 Structure
 
+When cloned into your project's `.claude/` directory:
+
 ```
-.claude/
-├── CLAUDE.md                 # Architectural guidelines and principles
-├── agents/                   # Specialized AI agents
-│   ├── codebase-analyzer.md      # Project structure analysis
-│   ├── docs-explorer.md          # Documentation research
-│   ├── playwright-qa-tester.md   # Browser-based testing
-│   ├── senior-dev-consultant.md  # Expert technical guidance
-│   ├── task-completion-validator.md # Task verification
-│   └── test-generator.md         # Test suite creation
-└── commands/                 # Custom slash commands
-    ├── commit.md            # Smart git commits
-    ├── deps.md              # Dependency management
-    ├── fix.md               # Auto-fix code issues
-    ├── status.md            # Project status overview
-    └── test.md              # Smart test execution
+your-project/
+├── CLAUDE.md                 # Move this to project root after cloning
+└── .claude/                  # This entire repo gets cloned here
+    ├── docs/                 # Detailed documentation guides
+    │   ├── ARCHITECTURE_GUIDE.md
+    │   ├── TESTING_STRATEGY.md
+    │   ├── DEBUGGING_APPROACH.md
+    │   ├── AGENT_WORKFLOWS.md
+    │   └── CONTEXT_MANAGEMENT.md
+    ├── agents/               # Specialized AI agents
+    │   ├── codebase-analyzer.md
+    │   ├── docs-explorer.md
+    │   ├── docs-maintainer.md
+    │   ├── playwright-qa-tester.md
+    │   ├── senior-dev-consultant.md
+    │   ├── task-completion-validator.md
+    │   └── test-generator.md
+    └── commands/             # Custom slash commands
+        ├── commit.md
+        ├── deps.md
+        ├── docs-update.md
+        ├── fix.md
+        ├── status.md
+        └── test.md
 ```
 
 ## 🚀 Quick Start
 
-1. **Clone this template**:
+1. **Clone into your project's .claude directory**:
    ```bash
-   git clone https://github.com/RGPankO/.claude.git my-project
-   cd my-project
-   rm -rf .git
-   git init
+   cd your-project
+   git clone https://github.com/RGPankO/.claude.git .claude
+   mv .claude/CLAUDE.md ./
    ```
 
 2. **Customize for your project**:
-   - Keep CLAUDE.md as your architectural guide
-   - Agents work out of the box
-   - Commands adapt to your project type automatically
+   - Edit CLAUDE.md to add your project-specific context
+   - Agents and commands work out of the box
+   - Documentation guides are ready to reference
 
 3. **Start developing**:
    - Use `/status` to check project state
@@ -64,6 +74,9 @@ Understands project structure without loading files into context. Identifies pat
 
 #### `docs-explorer`
 Researches documentation efficiently without cluttering context. Finds API references, configuration options, and best practices from project and external docs.
+
+### `docs-maintainer`
+Keeps documentation current by analyzing code changes and updating CLAUDE.md and docs/ files. Ensures documentation evolves with the codebase.
 
 ### Quality Assurance Agents
 
@@ -92,6 +105,9 @@ Manages dependencies: checks for updates, security vulnerabilities, unused packa
 
 ### `/commit [instructions]`
 Creates logical, well-structured commits with meaningful messages. Supports exclusions, custom messages, and smart grouping.
+
+### `/docs-update [check|update|suggest]`
+Analyzes code changes and updates documentation to keep CLAUDE.md and docs/ current. Helps maintain documentation as code evolves.
 
 ## 🏗️ Architectural Principles
 

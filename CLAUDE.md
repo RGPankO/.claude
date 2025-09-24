@@ -2,6 +2,36 @@
 
 This file provides guidance to Claude Code when working with code in this repository to maintain clean, modular, and scalable architecture.
 
+## Documentation Structure
+
+**This file (CLAUDE.md)**: Always loaded - contains core principles and quick reference. Keep it concise and focused.
+
+**Detailed Guides** (Referenced, not loaded - consult these when you need detailed information):
+- `.claude/docs/ARCHITECTURE_GUIDE.md` - Detailed architectural patterns and principles
+- `.claude/docs/TESTING_STRATEGY.md` - Comprehensive testing approaches
+- `.claude/docs/DEBUGGING_APPROACH.md` - Systematic debugging methodologies
+- `.claude/docs/AGENT_WORKFLOWS.md` - When and how to use agents effectively
+- `.claude/docs/CONTEXT_MANAGEMENT.md` - Managing context window efficiently
+
+## Documentation Maintenance
+
+**⚠️ IMPORTANT**: You should proactively maintain documentation. After implementing significant changes:
+- When you notice a pattern being used multiple times → Consider updating the architecture guide
+- When you encounter and fix repeated bugs → Document the pattern in debugging guide
+- When you discover workflow improvements → Update agent workflows
+- When new conventions emerge → Update relevant guides
+
+You can run `/docs-update check` to analyze if documentation needs updating. Use the `docs-maintainer` agent when you identify patterns that should be documented. The documentation should evolve with the codebase.
+
+## Available Commands
+
+- `/commit` - Smart git commits with logical grouping
+- `/status` - Comprehensive project status overview
+- `/test` - Smart test execution with various modes
+- `/fix` - Auto-fix code issues (linting, formatting)
+- `/deps` - Dependency management and security checks
+- `/docs-update` - Analyze and update documentation
+
 ## Core Architectural Principles
 
 ### Code Organization Philosophy
@@ -379,6 +409,21 @@ src/
 - "I've implemented the auth module - let me generate comprehensive tests for it"
 - "Our coverage is low on the payment module - I'll use the test generator"
 - "After refactoring, I need to update the tests with the test generator agent"
+
+### Documentation Maintainer Agent (`docs-maintainer`)
+
+**Use this agent to keep documentation current**:
+- **Pattern detection** identifying new conventions and practices
+- **Documentation updates** updating CLAUDE.md and docs/ files
+- **Consistency checks** ensuring documentation alignment
+- **Lesson capture** documenting bugs and solutions
+- **Architecture evolution** tracking architectural changes
+- **Workflow improvements** updating agent usage patterns
+
+**When to invoke**: Use when documentation needs updating. Examples:
+- "We've established a new event-driven pattern - let me update the docs"
+- "After this major refactoring, I'll update the architecture guide"
+- "This debugging session revealed a pattern - let me document it"
 
 ### Agent Collaboration Patterns
 
