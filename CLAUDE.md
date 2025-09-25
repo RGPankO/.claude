@@ -25,6 +25,7 @@ You can run `/docs-update check` to analyze if documentation needs updating. Use
 
 ## Available Commands
 
+- `/plan` - Create strategic implementation plans for complex features
 - `/commit` - Smart git commits with logical grouping
 - `/status` - Comprehensive project status overview
 - `/test` - Smart test execution with various modes
@@ -184,6 +185,13 @@ src/
 
 ## Development Workflow
 
+### Planning Complex Features
+When facing complex implementations:
+1. Run `/plan feature-name "description"` to create a comprehensive plan
+2. Or use the `strategic-planner` agent directly for planning
+3. Plans are saved in `.claude/plans/` as living documents
+4. Update plans as you progress through implementation
+
 ### Code Review Checklist
 
 **Functionality**
@@ -294,6 +302,22 @@ src/
 - Developer frustration
 
 ## Available Expert Agents
+
+### Strategic Planner Agent (`strategic-planner`)
+
+**Use this agent to create comprehensive implementation plans**:
+- **Complex feature planning** breaking down large features into phases
+- **Architecture design** planning system-wide changes
+- **Risk assessment** identifying and mitigating project risks
+- **Dependency mapping** understanding implementation order
+- **Timeline estimation** realistic scheduling with milestones
+- **Success criteria** defining measurable outcomes
+- **Living documentation** creating plans that evolve with progress
+
+**When to invoke**: Use at the start of significant work or when facing complex implementations. Examples:
+- "Let me create a strategic plan for this notification system"
+- "I'll use the strategic planner to break down this migration"
+- "Before starting, let me plan this complex feature properly"
 
 ### Senior Developer Consultant Agent (`senior-dev-consultant`)
 
@@ -454,9 +478,10 @@ src/
 - Delegate specialized tasks to agents to keep main Claude focused
 
 **Cost Optimization Notes**:
+- The `strategic-planner` uses Opus (highest capability, highest cost) - use for major planning sessions
 - The `senior-dev-consultant` uses a more capable model (higher cost) - use for complex problems
 - The `codebase-analyzer` and `docs-explorer` use efficient models (lower cost) - use liberally
-- The `test-generator` uses a balanced model - use when comprehensive tests are needed
+- The `test-generator` and `docs-maintainer` use balanced models - use when comprehensive work is needed
 
 ## Continuous Improvement
 

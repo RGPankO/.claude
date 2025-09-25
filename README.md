@@ -66,6 +66,9 @@ your-project/
 
 ### Core Development Agents
 
+#### `strategic-planner`
+Creates comprehensive implementation plans for complex features using Opus (highest capability model). Generates living plan documents with phases, risks, dependencies, and actionable tasks.
+
 #### `senior-dev-consultant`
 Expert guidance for complex technical decisions, architecture reviews, performance optimization, and security assessments. Uses advanced model for high-value consultations.
 
@@ -90,6 +93,9 @@ Verifies tasks are truly complete before marking done. Checks requirements, test
 Creates comprehensive test suites including unit, integration, and edge case tests. Follows project conventions and maximizes coverage.
 
 ## 📝 Available Commands
+
+### `/plan [description]`
+Creates comprehensive strategic plans for complex features using the highest-capability model (Opus). Generates living documents with phases, risks, and actionable tasks.
 
 ### `/status [verbose|brief|focus:area]`
 Comprehensive project overview including git status, running processes, tests, and todos.
