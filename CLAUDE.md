@@ -84,6 +84,29 @@ src/
 
 ## Development Principles
 
+### Clarity and Communication
+
+**⚠️ CRITICAL: Ask Before Assuming**
+- **When instructions are ambiguous or unclear**: Always ask for clarification rather than making assumptions
+- **When multiple interpretations are possible**: Request specific details about the intended approach
+- **When requirements seem incomplete**: Ask about missing details that could lead to incorrect implementation
+- **When context is unclear**: Confirm your understanding before proceeding
+- **Better to ask than sorry**: It's always preferable to ask a clarifying question than to implement something incorrectly and need to redo it
+
+**Examples of When to Ask for Clarification**:
+- User says "update the component" without specifying which component or what changes
+- User requests "fix the styling" without indicating what specific styling issues to address
+- User asks to "add functionality" without defining what functionality is needed
+- User mentions "optimize performance" without specifying which performance aspects or metrics
+- User says "make it better" without concrete criteria for improvement
+
+### Planning Complex Features
+When facing complex implementations:
+1. Run `/plan feature-name "description"` to create a comprehensive plan
+2. Or use the `strategic-planner` agent directly for planning
+3. Plans are saved in `.claude/plans/` as living documents
+4. Update plans as you progress through implementation
+
 ### Code Quality Standards
 
 **Maintainability**
@@ -377,6 +400,22 @@ When facing complex implementations:
 - "Bug fix is done - I'll verify it's truly complete with the validator agent"
 - "Database migration is ready - let me run the task validator to ensure it's production-ready"
 
+### Investigator Agent (`investigator`)
+
+**Use this agent for deep research that returns only essential findings**:
+- **Bug investigation** tracking down root causes of complex issues
+- **API research** understanding external APIs without loading all docs
+- **Performance analysis** finding bottlenecks and their solutions
+- **Security investigation** identifying vulnerabilities and fixes
+- **Data flow tracing** understanding how data moves through the system
+- **Library research** finding best practices and usage patterns
+- **Error pattern analysis** identifying intermittent or complex failures
+
+**When to invoke**: Use when you need deep investigation but want to keep context clean. Examples:
+- "Why are users getting intermittent 401 errors? Let me investigate"
+- "I'll use the investigator to research the Stripe API integration approach"
+- "Let me investigate what's causing the checkout performance issues"
+
 ### Codebase Analyzer Agent (`codebase-analyzer`)
 
 **Use this agent to understand project structure and patterns**:
@@ -480,8 +519,8 @@ When facing complex implementations:
 **Cost Optimization Notes**:
 - The `strategic-planner` uses Opus (highest capability, highest cost) - use for major planning sessions
 - The `senior-dev-consultant` uses a more capable model (higher cost) - use for complex problems
+- The `investigator`, `test-generator`, and `docs-maintainer` use balanced models - good capability/cost ratio
 - The `codebase-analyzer` and `docs-explorer` use efficient models (lower cost) - use liberally
-- The `test-generator` and `docs-maintainer` use balanced models - use when comprehensive work is needed
 
 ## Continuous Improvement
 

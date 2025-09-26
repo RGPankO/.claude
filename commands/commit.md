@@ -37,6 +37,12 @@ If `$ARGUMENTS` is provided, interpret it as specific instructions and apply thr
 When the user asks you to commit changes, follow this systematic approach:
 
 ### 1. Analysis Phase
+
+**First, consult commit guidelines:**
+- Read `.claude/docs/COMMIT_GUIDELINES.md` for temporary file handling and project integration rules
+- Apply logic-based detection for misplaced/temporary files
+- Ask user about files in unexpected locations before committing
+
 ```bash
 git status --porcelain
 git diff --name-only

@@ -28,8 +28,10 @@ your-project/
     │   ├── codebase-analyzer.md
     │   ├── docs-explorer.md
     │   ├── docs-maintainer.md
+    │   ├── investigator.md
     │   ├── playwright-qa-tester.md
     │   ├── senior-dev-consultant.md
+    │   ├── strategic-planner.md
     │   ├── task-completion-validator.md
     │   └── test-generator.md
     └── commands/             # Custom slash commands
@@ -37,6 +39,7 @@ your-project/
         ├── deps.md
         ├── docs-update.md
         ├── fix.md
+        ├── plan.md
         ├── status.md
         └── test.md
 ```
@@ -77,6 +80,9 @@ Understands project structure without loading files into context. Identifies pat
 
 #### `docs-explorer`
 Researches documentation efficiently without cluttering context. Finds API references, configuration options, and best practices from project and external docs.
+
+#### `investigator`
+Deep research specialist that returns only essential findings. Tracks down root causes, researches APIs, analyzes performance issues, all while keeping the main context clean.
 
 ### `docs-maintainer`
 Keeps documentation current by analyzing code changes and updating CLAUDE.md and docs/ files. Ensures documentation evolves with the codebase.
