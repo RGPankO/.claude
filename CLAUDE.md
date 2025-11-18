@@ -26,6 +26,9 @@ You can run `/docs-update check` to analyze if documentation needs updating. Use
 ## Available Commands
 
 - `/plan` - Create strategic implementation plans for complex features
+- `/delegate` - Delegate tasks to agents, keeping main context clean
+- `/debug` - First-principles debugging for complex issues
+- `/start_task` - Universal task management and context setup
 - `/commit` - Smart git commits with logical grouping
 - `/status` - Comprehensive project status overview
 - `/test` - Smart test execution with various modes
@@ -361,6 +364,24 @@ When facing complex implementations:
 - "Let me consult the senior developer agent for guidance on this architecture decision"
 - "This debugging issue is complex - I'll get a second opinion from the senior consultant"
 - "Before implementing this critical feature, I'll verify approach with the senior dev agent"
+
+### Senior Developer Implementer Agent (`senior-dev-implementer`)
+
+**Use this agent when you need production-quality code written**:
+- **Complex feature implementations** requiring senior-level code quality from the start
+- **Large refactoring** maintaining functionality while improving structure
+- **API endpoint implementations** with proper validation, auth, and error handling
+- **Database operations** with transactions and data integrity guarantees
+- **Business logic** requiring DRY/KISS principles and comprehensive testing
+- **Critical calculations** needing precision and extensive edge case testing
+- **Production-ready code** with built-in quality standards
+
+**Key difference from consultant**: Consultant provides advice and guidance; Implementer writes the actual production code with tests.
+
+**When to invoke**: Use when you need actual implementation, not just architectural guidance. Examples:
+- "I'll use the senior-dev-implementer to build this feature with proper validation and tests"
+- "Let me use the implementer agent to refactor this into well-tested, reusable modules"
+- "I'll have the implementer create this endpoint with full security and error handling"
 
 ### Playwright QA Tester Agent (`playwright-qa-tester`)
 

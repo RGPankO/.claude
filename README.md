@@ -19,11 +19,16 @@ your-project/
 ├── CLAUDE.md                 # Move this to project root after cloning
 └── .claude/                  # This entire repo gets cloned here
     ├── docs/                 # Detailed documentation guides
-    │   ├── ARCHITECTURE_GUIDE.md
-    │   ├── TESTING_STRATEGY.md
-    │   ├── DEBUGGING_APPROACH.md
+    │   ├── AGENT_TESTING_GUIDE.md
     │   ├── AGENT_WORKFLOWS.md
-    │   └── CONTEXT_MANAGEMENT.md
+    │   ├── ARCHITECTURE_GUIDE.md
+    │   ├── CODE_REVIEW_STANDARDS.md
+    │   ├── COMMIT_GUIDELINES.md
+    │   ├── CONTEXT_MANAGEMENT.md
+    │   ├── DEBUGGING_APPROACH.md
+    │   ├── FILE_ORGANIZATION.md
+    │   ├── QA_PROTOCOLS.md
+    │   └── TESTING_STRATEGY.md
     ├── agents/               # Specialized AI agents
     │   ├── codebase-analyzer.md
     │   ├── docs-explorer.md
@@ -31,15 +36,19 @@ your-project/
     │   ├── investigator.md
     │   ├── playwright-qa-tester.md
     │   ├── senior-dev-consultant.md
+    │   ├── senior-dev-implementer.md
     │   ├── strategic-planner.md
     │   ├── task-completion-validator.md
     │   └── test-generator.md
     └── commands/             # Custom slash commands
         ├── commit.md
+        ├── debug.md
+        ├── delegate.md
         ├── deps.md
         ├── docs-update.md
         ├── fix.md
         ├── plan.md
+        ├── start_task.md
         ├── status.md
         └── test.md
 ```
@@ -73,7 +82,10 @@ your-project/
 Creates comprehensive implementation plans for complex features using Opus (highest capability model). Generates living plan documents with phases, risks, dependencies, and actionable tasks.
 
 #### `senior-dev-consultant`
-Expert guidance for complex technical decisions, architecture reviews, performance optimization, and security assessments. Uses advanced model for high-value consultations.
+Expert guidance for complex technical decisions, architecture reviews, performance optimization, and security assessments. Provides advice and recommendations, not implementation.
+
+#### `senior-dev-implementer`
+Writes production-quality code with all best practices built-in. Unlike the consultant who advises, this agent actually implements features with DRY/KISS principles, proper error handling, comprehensive testing, and clean architecture.
 
 #### `codebase-analyzer`
 Understands project structure without loading files into context. Identifies patterns, conventions, and architectural decisions. Essential for navigating large codebases.
@@ -102,6 +114,15 @@ Creates comprehensive test suites including unit, integration, and edge case tes
 
 ### `/plan [description]`
 Creates comprehensive strategic plans for complex features using the highest-capability model (Opus). Generates living documents with phases, risks, and actionable tasks.
+
+### `/delegate <task>`
+Delegates complex tasks to specialized agents while keeping main Claude's context minimal. Acts as orchestrator, managing investigation and implementation through agents with detailed reporting standards.
+
+### `/debug <issue>`
+First-principles debugging for when normal approaches fail. Systematic methodology with stop-and-assess, dependency analysis, instrumentation strategy, hypothesis-driven testing, and user-assisted verification.
+
+### `/start_task <description>`
+Universal task management that sets up focused work session with context loading, todo creation, and clear next steps. Works across any project type.
 
 ### `/status [verbose|brief|focus:area]`
 Comprehensive project overview including git status, running processes, tests, and todos.
