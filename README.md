@@ -12,31 +12,42 @@ This skeleton provides:
 
 ## Quick Start
 
+Clone directly into your project root:
+
 ```bash
 cd your-project
-git clone https://github.com/RGPankO/.claude.git .claude
-mv .claude/CLAUDE.md ./
+git clone https://github.com/RGPankO/.claude.git .
+rm -rf .git   # Remove skeleton's git history
+git init      # Start fresh git history (or skip if existing repo)
 ```
+
+Everything is already in place - no moving files needed:
+- `CLAUDE.md` at project root
+- `.claude/` with agents, commands, docs
+- `tools/` directory structure ready
+- `.gitignore` with common patterns
 
 Then customize:
 1. Edit `CLAUDE.md` for project-specific context
 2. Edit `.claude/docs/ARCHITECTURE_GUIDE.md` for your architecture
-3. Optionally add `.claude/docs/KIRO_TASK_EXECUTION_GUIDE.md` workflow
 
 ## Structure
 
 ```
-your-project/
-├── CLAUDE.md                    # Project guidelines (move to root)
-├── tools/                       # Create this directory structure
-│   ├── scripts/                 # Utility scripts
-│   ├── testing/requests/        # QA test requests
-│   └── tmp/                     # Disposable files (gitignored)
-└── .claude/
-    ├── .gitignore               # Ignores settings.local.json
-    ├── agents/                  # 9 specialized agents
-    ├── commands/                # 8 slash commands
-    └── docs/                    # Detailed guides
+your-project/                    # This repo clones as your project root
+├── CLAUDE.md                    # Project guidelines
+├── .gitignore                   # Common ignores + Claude settings
+├── .claude/
+│   ├── agents/                  # 9 specialized agents
+│   ├── commands/                # 8 slash commands
+│   └── docs/                    # Detailed guides
+└── tools/
+    ├── README.md                # Tools documentation
+    ├── scripts/                 # Utility scripts
+    ├── testing/
+    │   ├── requests/            # QA test requests
+    │   └── results/             # Test reports (gitignored)
+    └── tmp/                     # Disposable files (gitignored)
 ```
 
 ## Commands (8)

@@ -1,2 +1,35 @@
-# Local settings (machine-specific)
-settings.local.json
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Coverage
+coverage/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Ephemeral directories (under /tools/)
+/tools/tmp/
+/tools/testing/results/
