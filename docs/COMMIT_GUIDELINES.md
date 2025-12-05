@@ -1,57 +1,69 @@
 # Commit Guidelines
 
-## Smart Commit Strategy
+Complete guide for the `/commit` command. The command file loads this doc for detailed instructions.
 
-The `/commit` command uses intelligent grouping to create meaningful commits rather than granular file-by-file commits.
+## Supported Arguments
 
-## Temporary File Handling
+- `/commit` - Commit all changes with smart grouping
+- `/commit [instructions]` - With specific instructions:
+  - **Exclusion**: "exclude X", "but not X", "without X"
+  - **Inclusion only**: "only X", "just X"
+  - **Custom message**: "with message 'X'"
+  - **File-specific**: List specific file paths
+  - **Scope**: "frontend only", "backend changes"
+  - **Mixed**: "only frontend but exclude tests"
 
-**File Patterns to Watch**:
-- `debug-*.ext` - Debugging scripts (never commit)
-- `test-*.ext` - Temporary tests (ask before committing)
-- `scratch-*.ext` - Experiments (never commit)
-- Files in `.tmp/` directory (auto-excluded)
+## Analysis Phase
 
-**Project Integration Detection** (identify misplaced/temporary files by location and context):
-- **Files in wrong location**: Implementation files in root when project structure is in `packages/`, `src/`, `app/`, etc.
-- **Orphaned files**: Files that don't integrate with existing project architecture or build system
-- **Missing imports/exports**: Files not referenced by any other project files
-- **Standalone implementations**: Files that duplicate existing project functionality without integration
-- **Out-of-structure files**: Files that bypass established project organization patterns
+Run these commands first:
+```bash
+git status --porcelain
+git diff --name-only
+git ls-files --others --exclude-standard
+```
 
-**Analysis Before Committing**:
-- Check if file location matches project structure (`packages/`, `src/`, etc. vs root)
-- Verify if file is imported/referenced by project code
-- Confirm file follows project's architectural patterns
-- Ensure file doesn't duplicate existing functionality without purpose
+**Categorize changes by:**
+- **Backend/API**: Express routes, database scripts, server logic
+- **Frontend/UI**: Components, styles, user interface
+- **Database**: Schema updates, migrations
+- **Bug Fixes**: Error handling, calculation fixes
+- **Documentation**: CLAUDE.md, README, guides
+- **Configuration**: Package.json, env configs
+- **Features**: New functionality, enhancements
 
-**Commit Rules**:
-- Never commit anything from `.tmp/`
-- Ask before committing files with temp prefixes
-- **Ask user before committing files in unexpected locations**
-- **Verify integration before committing standalone implementation files**
-- Delete temporary files instead of committing them
-- Suggest proper project location for misplaced files
-- Recommend integration or removal of orphaned files
+## Logical Grouping Rules
 
-## Logical Grouping Patterns
+**Group Together (same commit):**
+- Related files implementing a single feature
+- Files that depend on each other
+- Bug fix + its test
+- Component + styles + tests
 
-**Feature Implementation**:
-- Group related files by feature/module
-- Combine component + story + type files
-- Include tests with their implementation
-
-**Documentation Updates**:
-- Group doc updates with related code changes
-- Separate major doc overhauls into their own commits
-
-**Configuration Changes**:
-- Group related config file updates
-- Keep build/deployment configs together
+**Separate Commits:**
+- Bug fixes vs new features
+- Frontend vs backend changes
+- Database migrations vs application code
+- Documentation vs project code
+- Unrelated features
+- Refactoring vs new functionality
 
 ## Commit Message Format
 
-- Start with action verb (Add, Update, Fix, Remove)
-- Be specific about what changed and why
-- Reference issue numbers when applicable
-- End with Claude Code signature and co-author attribution
+```
+<Type>: <Clear summary in imperative mood>
+
+<Optional detailed description>
+- Key change 1
+- Key change 2
+```
+
+**Types:** `Add`, `Fix`, `Update`, `Remove`, `Refactor`, `Implement`, `Create`
+
+**IMPORTANT:** Do NOT add promotional messages or signature blocks. Keep professional.
+
+## Staging Strategy
+
+```bash
+git add <specific files for this commit>
+git commit -m "$(cat <<'EOF'
+<commit message>
