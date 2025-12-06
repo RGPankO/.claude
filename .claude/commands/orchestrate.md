@@ -5,67 +5,28 @@ description: Full workflow orchestration - analyze, implement, test, document, r
 
 # Orchestrate Command
 
+## Instructions
+
+If you haven't read these in this session, read them first:
+- `.claude/docs/AGENT_GUIDE.md` - Base agent patterns
+- `.claude/docs/ORCHESTRATE_GUIDE.md` - Orchestration constraints and phases
+
 ## Arguments
 
 $ARGUMENTS - Task description (e.g., "add user notifications", "refactor auth module")
 
 ## Task
 
-Execute a complete development workflow using specialized agents:
+Execute focused workflow with constraints from the guide:
 
-### Phase 1: Understand
-- Use `investigator` or `codebase-analyzer` to understand current patterns
-- Identify where changes should go and what patterns to follow
+1. **Understand** - Use `codebase-analyzer` to understand patterns
+2. **Implement** - Use `senior-dev-implementer` with guide constraints
+3. **Test** - Use `test-generator` (skip if not needed, see guide)
+4. **Document** - Use `docs-maintainer` (skip unless explicitly asked)
+5. **Review** - Use `senior-dev-consultant` to check for red flags
 
-### Phase 2: Implement
-- Use `senior-dev-implementer` for production-quality code
-- Or `general-purpose` for simpler implementations
-
-### Phase 3: Test
-- Use `test-generator` to create comprehensive tests
-- Ensure edge cases and error paths covered
-
-### Phase 4: Document
-- Use `docs-maintainer` to update relevant documentation
-- Update ARCHITECTURE_GUIDE if patterns changed
-
-### Phase 5: Review
-- Use `senior-dev-consultant` to review the implementation
-- Address any concerns raised
-
-### Execution Rules
-
-1. **Sequential phases** - Each phase depends on previous
-2. **Report between phases** - Brief summary after each phase
-3. **Stop on issues** - If any phase fails, stop and report
-4. **No commits** - Wait for user to test and approve
-
-### Agent Selection
-
-| Phase | Primary Agent | Alternative |
-|-------|---------------|-------------|
-| Understand | `codebase-analyzer` | `investigator` (for bugs) |
-| Implement | `senior-dev-implementer` | `general-purpose` (simple tasks) |
-| Test | `test-generator` | - |
-| Document | `docs-maintainer` | - |
-| Review | `senior-dev-consultant` | `task-completion-validator` |
-
-### Output
-
-After each phase:
-```
-✓ Phase X Complete: [brief summary]
-  - Files: [list]
-  - Key changes: [list]
-```
-
-After all phases:
-```
-ORCHESTRATION COMPLETE
-
-Files Modified: [list]
-Tests Added: [count]
-Docs Updated: [list]
-
-Ready for testing. Please verify and confirm before commit.
-```
+Key principles:
+- Include CONSTRAINTS block from guide in every agent call
+- Verify file line counts (max 300)
+- Stop on red flags, fix before proceeding
+- No commits until user approves

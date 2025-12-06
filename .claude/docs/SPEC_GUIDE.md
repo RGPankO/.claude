@@ -1,10 +1,10 @@
-# Plan Command - Comprehensive Guide
+# Spec Command - Comprehensive Guide
 
-> **Context Loading**: This file is REFERENCED by the `/plan` command. Load it if not already in session.
+> **Context Loading**: This file is REFERENCED by the `/spec` command. Load it if not already in session.
 
 ## Purpose
 
-Create comprehensive implementation plans for complex tasks that risk running out of context. The plan is saved to `tools/tmp/` (gitignored) so you can reference it throughout development without losing it when context resets.
+Create comprehensive implementation plans for complex tasks that risk running out of context. The spec is saved to `.claude/specs/` so you can reference it throughout development without losing it when context resets.
 
 ## When to Use
 
@@ -16,34 +16,33 @@ Create comprehensive implementation plans for complex tasks that risk running ou
 ## Workflow
 
 ### 1. Receive Task Description
-User provides: `/plan how to implement X` or `/plan build feature Y`
+User provides: `/spec how to implement X` or `/spec build feature Y`
 
-### 2. Create the Plan
-Analyze and create a comprehensive plan:
+### 2. Create the Spec
+Analyze and create a comprehensive spec:
 - Analyze requirements and complexity
 - Break down into phases and tasks
 - Identify dependencies and risks
 - Create actionable task breakdown
 
-### 3. Save Plan to tmp/
-Write the plan to `tools/tmp/<feature-name>-plan.md`
-- File is gitignored (not version controlled)
+### 3. Save Spec
+Write the spec to `.claude/specs/<feature-name>-spec.md`
 - Persists until manually deleted
 - Can be referenced across context resets
 
 ### 4. Report Summary
 Provide brief summary to user:
-- Plan location
+- Spec location
 - Phase count and key milestones
 - Immediate next steps
-- How to reference the plan later
+- How to reference the spec later
 
 ---
 
-## Plan Document Structure
+## Spec Document Structure
 
 ```markdown
-# [Feature Name] Implementation Plan
+# [Feature Name] Implementation Spec
 
 **Created**: [Date]
 **Status**: Planning | In Progress | Completed
@@ -92,13 +91,13 @@ Tasks:
 
 ---
 
-## Referencing the Plan
+## Referencing the Spec
 
-After plan creation, user can:
-- Read it: `Read tools/tmp/<feature>-plan.md`
-- Ask Claude to check it: "What's the next task in the plan?"
+After spec creation, user can:
+- Read it: `Read .claude/specs/<feature>-spec.md`
+- Ask Claude to check it: "What's the next task in the spec?"
 - Update progress: Mark tasks complete as they're done
-- Resume after context reset: Plan persists in tmp/
+- Resume after context reset: Spec persists in .claude/specs/
 
 ---
 
@@ -114,7 +113,7 @@ After plan creation, user can:
 ### DON'T:
 - Over-plan implementation details
 - Include time estimates
-- Make the plan too rigid
+- Make the spec too rigid
 - Forget to check existing patterns first
 - Plan more than 3-4 phases ahead in detail
 
@@ -122,15 +121,15 @@ After plan creation, user can:
 
 ## Example Usage
 
-**User**: `/plan implement real-time order updates via WebSocket`
+**User**: `/spec implement real-time order updates via WebSocket`
 
 **Claude**:
-1. Analyzes the task and creates comprehensive plan
-2. Saves to `tools/tmp/realtime-order-updates-plan.md`
+1. Analyzes the task and creates comprehensive spec
+2. Saves to `.claude/specs/realtime-order-updates-spec.md`
 3. Reports back:
 
    ```
-   Plan created: tools/tmp/realtime-order-updates-plan.md
+   Spec created: .claude/specs/realtime-order-updates-spec.md
 
    Phases: 3
    - Phase 1: WebSocket server setup
@@ -139,18 +138,18 @@ After plan creation, user can:
 
    Next step: Start with Phase 1, Task 1.1 - Create WebSocket service
 
-   Reference the plan anytime with: "check the plan" or read it directly.
+   Reference the spec anytime with: "check the spec" or read it directly.
    ```
 
 ---
 
 ## Cleanup
 
-Plans in `tools/tmp/` are gitignored and temporary. Delete when:
+Delete specs when:
 - Feature is complete
-- Plan is no longer needed
+- Spec is no longer needed
 - Starting fresh on a different approach
 
 ```bash
-rm tools/tmp/<feature>-plan.md
+rm .claude/specs/<feature>-spec.md
 ```

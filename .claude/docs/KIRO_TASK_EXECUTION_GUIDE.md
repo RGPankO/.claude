@@ -10,6 +10,35 @@ This document describes the exact workflow for executing tasks from a Kiro spec'
 4. **Test Everything** - No task is complete without passing tests
 5. **Explicit Status Updates** - Always mark tasks in_progress → completed
 6. **Integration Over Isolation** - New behavior must be wired into existing flows, not left as orphaned code
+7. **Delegate Aggressively** - Use agents to keep main context clean (see Delegation section)
+
+---
+
+## Delegation (Anti-Context-Bloat)
+
+**Delegate to agents** instead of loading many files into main context:
+
+| Task Type | Agent | What to Give It |
+|-----------|-------|-----------------|
+| Understand patterns | `codebase-analyzer` | "Find how X is done in this codebase" |
+| Trace integration | `investigator` | "Where is X called from?" |
+| Complex implementation | `senior-dev-implementer` | Requirements + interface from design.md |
+| Write tests | `test-generator` | Service file + requirements + testing constraints below |
+
+**When delegating test writing**, include these constraints:
+
+```
+TESTING CONSTRAINTS:
+- Write tests MANUALLY with intent - NO auto-generation
+- Meaningful, targeted tests that validate requirements
+- Max 3-5 tests per feature (happy path + 1-2 edge cases + error case)
+- Test files under 150 lines
+- No tests for trivial/obvious code
+- No dozens of similar test cases
+- Quality over quantity - thoughtful and precise
+```
+
+Only load into main context what you need to review/verify.
 
 ---
 
@@ -251,6 +280,20 @@ Report results to user. Only mark complete if ALL tests pass.
 ---
 
 ## Phase 4: Testing Strategy
+
+### Testing Philosophy (CRITICAL)
+
+**Tests must be meaningful, targeted, and manually written.**
+
+| DO | DON'T |
+|----|-------|
+| Write tests with clear intent | Auto-generate test suites |
+| 3-5 focused tests per feature | Dozens of similar test cases |
+| Test behavior, not implementation | Test every line of code |
+| Validate requirements | Write tests for the sake of coverage |
+| Keep test files under 150 lines | Create 500+ line test files |
+
+**Ask yourself**: "Does this test catch a real bug or validate a requirement?" If not, don't write it.
 
 ### 4.1 When to Write Unit Tests
 

@@ -7,7 +7,9 @@ description: Delegate investigation and implementation to agents, keeping main c
 
 ## Instructions
 
-If you haven't read `.claude/docs/DELEGATE_GUIDE.md` in this session, read it first.
+If you haven't read these in this session, read them first:
+- `.claude/docs/AGENT_GUIDE.md` - Base agent patterns
+- `.claude/docs/DELEGATE_GUIDE.md` - Delegate-specific workflows
 
 ## Arguments
 

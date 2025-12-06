@@ -259,7 +259,7 @@ Create 1-3 specialized agent tasks:
 **Every Agent Report MUST Include:**
 
 ### 1. Precise File Locations
-- FULL file paths: `C:\projects\example\src\components\Example.jsx`
+- FULL file paths: `src/components/Example.jsx`
 - Exact line numbers: `Line 42` or `Lines 38-45`
 - Multiple locations if relevant
 
@@ -299,12 +299,12 @@ Create 1-3 specialized agent tasks:
 [One sentence explanation]
 
 **Evidence:**
-- File: `C:\path\to\file.js:42`
+- File: `src/path/to/file.js:42`
 - Code: [exact snippet]
 - Issue: [what's wrong]
 
 **Fix Required:**
-- File: `C:\path\to\file.js:42`
+- File: `src/path/to/file.js:42`
 - Change: [exact change]
 - Reason: [why]
 

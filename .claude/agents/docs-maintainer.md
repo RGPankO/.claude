@@ -75,37 +75,34 @@ Update when:
 - Refactoring strategies evolve
 - Technical debt patterns identified
 
-**TESTING_STRATEGY.md**
+**KIRO_TESTING_GUIDE.md**
 Update when:
 - Testing approaches change
-- New test categories added
-- Coverage requirements change
-- Test organization evolves
-- Testing tools/frameworks change
+- New test patterns identified
+- Property test conventions evolve
+- Test organization changes
 
-**DEBUGGING_APPROACH.md**
+**DEBUG_GUIDE.md**
 Update when:
 - New debugging techniques discovered
 - Common bug patterns identified
 - Debugging tools added
-- Performance issues patterns found
 - Error handling strategies evolve
 
-**AGENT_WORKFLOWS.md**
+**AGENT_GUIDE.md**
 Update when:
 - New agents added
-- Workflow patterns change
+- Agent usage patterns change
 - Agent combinations discovered
-- Usage patterns evolve
-- Cost/performance insights gained
+- Report standards evolve
 
-**CONTEXT_MANAGEMENT.md**
+**USER_GUIDE.md** (Non-technical, user-facing)
 Update when:
-- Context strategies improve
-- Loading patterns change
-- Memory management evolves
-- Search vs load patterns clarified
-- New context commands discovered
+- New features added to the application
+- UI/UX changes affect user workflows
+- Configuration options change
+- User-facing behavior changes
+Note: This is a NON-TECHNICAL guide for end users of the application, not developers.
 
 ## Update Triggers
 

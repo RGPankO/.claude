@@ -7,7 +7,9 @@ description: First-principles debugging for complex issues
 
 ## Instructions
 
-If you haven't read `.claude/docs/DEBUG_GUIDE.md` in this session, read it first.
+If you haven't read these in this session, read them first:
+- `.claude/docs/AGENT_GUIDE.md` - Base agent patterns (for investigator agents)
+- `.claude/docs/DEBUG_GUIDE.md` - Systematic debugging process
 
 ## Arguments
 

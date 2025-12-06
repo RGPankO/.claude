@@ -530,6 +530,38 @@ Your response to this debug command MUST include:
 
 ---
 
+## QUICK REFERENCE
+
+### Reproduce First
+Never debug what you can't reproduce. Create minimal reproduction case, document exact steps.
+
+### Git Bisect (Find Breaking Commit)
+```bash
+git bisect start
+git bisect bad HEAD
+git bisect good <known-good-commit>
+# Git will checkout commits, you test each, mark good/bad
+```
+
+### Common Bug Categories
+
+| Category | Symptoms | Debug Approach |
+|----------|----------|----------------|
+| Logic Errors | Wrong results, off-by-one | Add assertions, trace execution |
+| State Issues | Race conditions, stale data | Log state changes, use immutable data |
+| Async Issues | Unhandled promises, timeouts | Log async flows, check promise chains |
+| Type Errors | null/undefined access | Add type checks, use TypeScript |
+| Integration | API mismatches, config issues | Validate inputs/outputs at boundaries |
+
+### Useful Commands
+```bash
+lsof -i :3000              # Find process using port
+netstat -ano | findstr :3000  # Windows equivalent
+watch -n 1 'tail -20 app.log' # Monitor log file
+```
+
+---
+
 ## REMEMBER
 
 **You are in debug mode because normal approaches failed.**

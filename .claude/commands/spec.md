@@ -3,11 +3,11 @@ argument-hint: [description of what to plan] (required: description of the featu
 description: Create comprehensive strategic plan for complex features, saved to tmp for persistence
 ---
 
-# Plan Command
+# Spec Command
 
 ## Instructions
 
-If you haven't read `.claude/docs/PLAN_GUIDE.md` in this session, read it first.
+If you haven't read `.claude/docs/SPEC_GUIDE.md` in this session, read it first.
 
 ## Arguments
 
@@ -22,12 +22,12 @@ $ARGUMENTS - Description of what to plan (e.g., "implement WebSocket notificatio
    - Note risks and mitigation strategies
    - No time estimates, just work breakdown
 
-2. **Save Plan** - Write the plan to `tools/tmp/<feature-name>-plan.md`
+2. **Save Spec** - Write the spec to `.claude/specs/<feature-name>-spec.md`
    - Extract a short feature name from the description
-   - File persists until manually deleted (gitignored)
+   - File persists until manually deleted
 
 3. **Report Back** - Provide brief summary:
-   - Plan file location
+   - Spec file location
    - Number of phases and key milestones
    - Immediate next step to begin
 

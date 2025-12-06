@@ -9,20 +9,25 @@ This file provides guidance to Claude Code when working with code in this reposi
 **Detailed Guides** (Referenced, not loaded - consult when needed):
 - `.claude/docs/CODE_PRINCIPLES.md` - Code quality standards (hard limits, patterns)
 - `.claude/docs/FILE_PRINCIPLES.md` - File organization (structure, naming)
+- `.claude/docs/AGENT_GUIDE.md` - Base patterns for agent delegation
 - `.claude/docs/ARCHITECTURE_GUIDE.md` - Project architecture and patterns
+- `.claude/docs/KIRO_TASK_EXECUTION_GUIDE.md` - Development workflow for Kiro specs
 - `.claude/docs/DELEGATE_GUIDE.md` - Agent delegation strategies
 - `.claude/docs/DEBUG_GUIDE.md` - Systematic debugging methodologies
 
 ## Available Commands
 
 - `/start` - Load essential project context (principles, architecture)
-- `/plan` - Create strategic implementation plan (saves to tools/tmp/)
+- `/spec` - Create comprehensive strategic plan for complex features, saved to .claude/specs/
 - `/delegate` - Delegate tasks to agents, keeping context clean
 - `/orchestrate` - Full workflow: analyze → implement → test → document → review
 - `/debug` - First-principles debugging for complex issues
 - `/commit` - Smart git commits with logical grouping
 - `/docs-update` - Analyze and update documentation
 - `/test` - Create QA test request documents
+- `/kiro` - Execute tasks from Kiro implementation plans
+- `/kiro-create` - Create a new Kiro spec (requirements.md, design.md, tasks.md)
+- `/kiro-review` - Review completed Kiro tasks against specifications
 
 ## Core Principles
 
