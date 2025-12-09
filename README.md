@@ -1,13 +1,15 @@
 # Claude Code Skeleton
 
-A portable, optimized skeleton for Claude Code projects with enforceable principles, specialized agents, and minimal commands.
+A portable, optimized skeleton for Claude Code projects with enforceable principles, specialized agents, and workflow commands.
 
 ## Purpose
 
 This skeleton provides:
 - **Enforceable Standards**: CODE_PRINCIPLES and FILE_PRINCIPLES with hard limits
 - **Specialized Agents**: 9 agents for delegation, keeping main context clean
-- **Minimal Commands**: 8 commands that reference detailed docs
+- **Workflow Commands**: 10 slash commands for common development workflows
+- **Kiro IDE Integration**: Generate and work with [Kiro](https://kiro.dev) specs from Amazon
+- **Antigravity Testing**: Create human-readable QA test requests for [Google Antigravity](https://antigravity.google/)
 - **~90% Portable**: Only ARCHITECTURE_GUIDE needs project customization
 
 ## Quick Start
@@ -39,29 +41,56 @@ your-project/                    # This repo clones as your project root
 ├── .gitignore                   # Common ignores + Claude settings
 ├── .claude/
 │   ├── agents/                  # 9 specialized agents
-│   ├── commands/                # 8 slash commands
+│   ├── commands/                # 10 slash commands
 │   └── docs/                    # Detailed guides
 └── tools/
     ├── README.md                # Tools documentation
     ├── scripts/                 # Utility scripts
     ├── testing/
-    │   ├── requests/            # QA test requests
+    │   ├── requests/            # QA test requests for Antigravity
     │   └── results/             # Test reports (gitignored)
     └── tmp/                     # Disposable files (gitignored)
 ```
 
-## Commands (8)
+## Commands (10)
 
 | Command | Purpose |
 |---------|---------|
 | `/start` | Load project context (principles, architecture) |
-| `/plan` | Create implementation plan (saves to tools/tmp/) |
+| `/spec` | Create strategic implementation plan (saves to `.claude/specs/`) |
 | `/delegate` | Delegate to agents, keep context clean |
 | `/orchestrate` | Full workflow: analyze → implement → test → document → review |
 | `/debug` | First-principles debugging |
-| `/commit` | Smart git commits |
-| `/docs-update` | Update documentation |
-| `/test` | Create QA test requests |
+| `/commit` | Smart git commits with logical grouping |
+| `/docs-update` | Analyze and update documentation |
+| `/test` | Create QA test requests for Antigravity |
+| `/kiro` | Execute tasks from Kiro implementation plans |
+| `/kiro-create` | Create new Kiro specs (requirements.md, design.md, tasks.md) |
+| `/kiro-review` | Review completed Kiro tasks against specifications |
+
+## Kiro IDE Integration
+
+[Kiro](https://kiro.dev) is Amazon's spec-driven development IDE. This skeleton includes commands to work with Kiro-style specifications from Claude Code:
+
+- **`/kiro-create <feature>`**: Generate a complete Kiro spec with requirements.md (user stories, EARS acceptance criteria), design.md (architecture, interfaces, correctness properties), and tasks.md (numbered implementation checklist)
+- **`/kiro <task_number>`**: Execute a specific task from a Kiro tasks.md file following the standardized workflow
+- **`/kiro-review <task_number>`**: Review completed tasks against specifications to verify correctness
+
+Specs are stored in `.kiro/specs/{feature-name}/` following Kiro conventions.
+
+**Cross-agent reviews**: The `/kiro-review` command is designed for a separate Claude session (or other AI agents like OpenAI Codex) to review completed work. This provides an independent verification layer - the implementing agent and reviewing agent are different sessions, reducing bias and catching issues the implementer might miss.
+
+## Antigravity Testing
+
+[Google Antigravity](https://antigravity.google/) is Google's agentic development platform that can test applications using browser automation - clicking buttons and typing text like a real human user.
+
+The `/test` command creates human-readable QA test request documents that Antigravity can execute:
+- Exhaustively specific test cases with exact steps
+- Pre-conditions and expected results
+- Browser console and terminal monitoring instructions
+- Report templates for testers to fill out
+
+Test requests are saved to `tools/testing/requests/`.
 
 ## Agents (9)
 
@@ -86,10 +115,13 @@ your-project/                    # This repo clones as your project root
 | `ARCHITECTURE_GUIDE.md` | Project architecture patterns | **Customize** |
 | `DELEGATE_GUIDE.md` | Agent delegation strategies | Yes |
 | `DEBUG_GUIDE.md` | Debugging methodology | Yes |
-| `PLAN_GUIDE.md` | Planning workflow | Yes |
+| `SPEC_GUIDE.md` | Strategic planning workflow | Yes |
 | `COMMIT_GUIDELINES.md` | Commit message standards | Yes |
-| `AGENT_TESTING_GUIDE.md` | QA agent protocols | Yes |
-| `KIRO_TASK_EXECUTION_GUIDE.md` | Task execution workflow | Yes |
+| `TESTING_REQUEST_GUIDE.md` | QA test request format for Antigravity | Yes |
+| `KIRO_SPEC_GUIDE.md` | Kiro spec writing guidelines | Yes |
+| `KIRO_TASK_EXECUTION_GUIDE.md` | Kiro task execution workflow | Yes |
+| `KIRO_REVIEW_GUIDE.md` | Kiro task review process | Yes |
+| `KIRO_TESTING_GUIDE.md` | Testing approach for Kiro tasks | Yes |
 
 ## Key Principles
 
@@ -119,12 +151,19 @@ your-project/                    # This repo clones as your project root
 /commit                   # Smart commit
 ```
 
-### Mini-Delegation (for large tasks)
+### Kiro Spec-Driven Development
 ```
-1. Investigate → get findings
-2. Implement backend → review
-3. Implement frontend → review
-4. Add tests → complete
+/kiro-create user-auth    # Create specs for user authentication
+/kiro 1.1                 # Execute first task
+/kiro-review 1.1          # Review completed task
+/kiro 1.2                 # Continue to next task
+```
+
+### QA Testing with Antigravity
+```
+/test login-flow          # Create test request document
+# Antigravity executes the test cases in browser
+# Review results in tools/testing/results/
 ```
 
 ## Customization
@@ -162,3 +201,4 @@ Instructions for the command...
 - **Enforceable Principles**: Hard limits, not suggestions
 - **Agent Delegation**: Keep main context clean
 - **Portable by Default**: Customize only ARCHITECTURE_GUIDE
+- **IDE Interoperability**: Works with Kiro specs and Antigravity testing
