@@ -7,7 +7,7 @@ A portable, optimized skeleton for Claude Code projects with enforceable princip
 This skeleton provides:
 - **Enforceable Standards**: CODE_PRINCIPLES and FILE_PRINCIPLES with hard limits
 - **Specialized Agents**: 9 agents for delegation, keeping main context clean
-- **Workflow Commands**: 10 slash commands for common development workflows
+- **Workflow Commands**: 12 slash commands for common development workflows
 - **Kiro IDE Integration**: Generate and work with [Kiro](https://kiro.dev) specs from Amazon
 - **Antigravity Testing**: Create human-readable QA test requests for [Google Antigravity](https://antigravity.google/)
 - **~90% Portable**: Only ARCHITECTURE_GUIDE needs project customization
@@ -41,7 +41,7 @@ your-project/                    # This repo clones as your project root
 ├── .gitignore                   # Common ignores + Claude settings
 ├── .claude/
 │   ├── agents/                  # 9 specialized agents
-│   ├── commands/                # 10 slash commands
+│   ├── commands/                # 12 slash commands
 │   └── docs/                    # Detailed guides
 └── tools/
     ├── README.md                # Tools documentation
@@ -52,7 +52,7 @@ your-project/                    # This repo clones as your project root
     └── tmp/                     # Disposable files (gitignored)
 ```
 
-## Commands (10)
+## Commands (12)
 
 | Command | Purpose |
 |---------|---------|
@@ -61,6 +61,7 @@ your-project/                    # This repo clones as your project root
 | `/delegate` | Delegate to agents, keep context clean |
 | `/orchestrate` | Full workflow: analyze → implement → test → document → review |
 | `/debug` | First-principles debugging |
+| `/poc` | Proof of concept to validate technical feasibility |
 | `/commit` | Smart git commits with logical grouping |
 | `/docs-update` | Analyze and update documentation |
 | `/test` | Create QA test requests for Antigravity |
@@ -115,6 +116,7 @@ Test requests are saved to `tools/testing/requests/`.
 | `ARCHITECTURE_GUIDE.md` | Project architecture patterns | **Customize** |
 | `DELEGATE_GUIDE.md` | Agent delegation strategies | Yes |
 | `DEBUG_GUIDE.md` | Debugging methodology | Yes |
+| `POC_GUIDE.md` | Proof of concept patterns | Yes |
 | `SPEC_GUIDE.md` | Strategic planning workflow | Yes |
 | `COMMIT_GUIDELINES.md` | Commit message standards | Yes |
 | `TESTING_REQUEST_GUIDE.md` | QA test request format for Antigravity | Yes |

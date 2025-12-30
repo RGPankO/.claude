@@ -14,6 +14,7 @@ This file provides guidance to Claude Code when working with code in this reposi
 - `.claude/docs/KIRO_TASK_EXECUTION_GUIDE.md` - Development workflow for Kiro specs
 - `.claude/docs/DELEGATE_GUIDE.md` - Agent delegation strategies
 - `.claude/docs/DEBUG_GUIDE.md` - Systematic debugging methodologies
+- `.claude/docs/POC_GUIDE.md` - Proof of concept patterns for validating unknowns
 
 ## Available Commands
 
@@ -22,6 +23,7 @@ This file provides guidance to Claude Code when working with code in this reposi
 - `/delegate` - Delegate tasks to agents, keeping context clean
 - `/orchestrate` - Full workflow: analyze → implement → test → document → review
 - `/debug` - First-principles debugging for complex issues
+- `/poc` - Proof of concept to validate technical feasibility before full build
 - `/commit` - Smart git commits with logical grouping
 - `/docs-update` - Analyze and update documentation
 - `/test` - Create QA test request documents
